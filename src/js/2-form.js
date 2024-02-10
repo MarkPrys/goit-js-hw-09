@@ -29,7 +29,7 @@ form.addEventListener('submit', event => {
     const email = form.elements.email.value.trim();
     const message = form.elements.message.value.trim();
     if (!email || !message) {
-        alert('Fields "email" and "message" must be filled!');
+        alert('Поля "email" та "message" мають бути заповнені!');
         return;
     }
     clearFormData();
