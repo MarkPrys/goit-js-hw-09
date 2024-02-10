@@ -3,19 +3,16 @@ import { galleryItems } from './gallery-items';
 import SimpleLightbox from "simplelightbox"; 
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
-
-console.log(galleryItems);
 
 const gallery = document.querySelector(".gallery");
 
 function createMarkup(array) {
   const imagesList = array.map(({ preview, original, description }) => 
   `
-  <li class="gallery__item">
-  <a class="gallery__link" href="${original}">
+  <li class="gallery-item">
+  <a class="gallery-link" href="${original}">
     <img
-      class="gallery__image"
+      class="gallery-image"
       src="${preview}"
       alt="${description}"
     />
@@ -28,15 +25,8 @@ function createMarkup(array) {
 createMarkup(galleryItems)
 
 
-  const instance = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {
     captionsData: "alt",
-    captionDelay: 100,
+    captionDelay: 250,
   });
   
-  function handleClick(event) {
-    event.preventDefault();
-    if (event.target === event.currentTarget) {
-      return;
-    }
-    instance.open(1)
-  }
