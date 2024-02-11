@@ -17,6 +17,7 @@ function loadFormData() {
         form.elements.email.value = formData.email;
         form.elements.message.value = formData.message;
     }
+
 }
 
 function clearFormData() {
