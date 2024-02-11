@@ -1,3 +1,6 @@
+import 'izitoast/dist/css/iziToast.min.css';
+import iziToast from 'izitoast/dist/js/iziToast.min.js';
+
 const form = document.querySelector('.feedback-form');
 const localStorageKey = 'feedback-form-state';
 
@@ -30,8 +33,10 @@ form.addEventListener('submit', event => {
     const email = form.elements.email.value.trim();
     const message = form.elements.message.value.trim();
     if (!email || !message) {
-        alert('Поля "email" та "message" мають бути заповнені!');
-        return;
+        iziToast.warning({
+            message: 'Поля Email та Message мають бути заповнені',
+        });
+        return
     }
     clearFormData();
 });
