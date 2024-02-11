@@ -5,7 +5,7 @@ const form = document.querySelector('.feedback-form');
 const localStorageKey = 'feedback-form-state';
 
 form.addEventListener('input', event => {
-    if (event.target.matches('.email, .message')) {
+    if (event.target.name === 'email' || event.target.name === 'message') {
         const formData = {
             email: form.elements.email.value.trim(),
             message: form.elements.message.value.trim()
@@ -29,6 +29,10 @@ function clearFormData() {
 }
 
 form.addEventListener('submit', event => {
+    console.log({
+        email: form.elements.email.value,
+        message: form.elements.message.value,
+    });
     event.preventDefault();
     const email = form.elements.email.value.trim();
     const message = form.elements.message.value.trim();
@@ -42,3 +46,4 @@ form.addEventListener('submit', event => {
 });
 
 window.addEventListener('load', loadFormData);
+
